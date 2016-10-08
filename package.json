@@ -1,6 +1,6 @@
 {
   "name": "react-native-qq",
-  "version": "1.4.2",
+  "version": "1.4.3-p",
   "description": "QQ Login&Share support in React Native.",
   "main": "index.js",
   "scripts": {
