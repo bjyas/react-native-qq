@@ -124,11 +124,8 @@ RCT_EXPORT_METHOD(logout)
             CGFloat thumbImageSize = 80;
             size = CGSizeMake(thumbImageSize,thumbImageSize);
         }
-        [_bridge.imageLoader loadImageWithTag:imageUrl size:size scale:1 resizeMode:UIViewContentModeScaleToFill progressBlock:nil completionBlock:^(NSError *error, UIImage *image) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self _shareToQQWithData:aData image:image scene:aScene resolve:resolve reject:reject];
-            });
-        }];
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
+        [self shareToWeixinWithData:aData image:image scene:aScene callBack:aCallBack];
     }
     else {
         [self _shareToQQWithData:aData image:nil scene:aScene resolve:resolve reject:reject];
